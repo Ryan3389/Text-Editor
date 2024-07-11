@@ -17,21 +17,21 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
-    //CHECK IF THIS IS CORRECT BEFORE MOVING ON
+    //CHECK IF THIS IS CORRECT BEFORE MOVING ON 
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Webpack Plugin'
+        title: 'JATE'
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
       new WebpackPwaManifest({
-        name: 'Text Editor',
-        short_name: 'Text Editor',
+        name: 'Jate Text Editor',
+        short_name: 'JATE',
         description: 'A text editor',
-        background_color: 'ENTER COLOR HERE',
+        background_color: '#2B2C25',
         start_url: '/',
         icons: [{
           src: src.path.resolve('src/images/logo.png'),
