@@ -29,9 +29,27 @@ export const putDb = async (content) => {
   const result = await request
 
   console.log('Data saved to DB', result)
+
+  return result
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+export const getDb = async () => {
+  console.error('Getting all data from database')
+
+  const textDb = await openDB('JATE', 1)
+
+  const tx = textDb.transaction('contact', 'readonly')
+
+  const store = tx.objectStore('JATE')
+
+  const request = store.getAll()
+
+  const result = await request
+
+  console.log('result value: ', result)
+
+  return result
+}
 
 initdb();
