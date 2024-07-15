@@ -17,14 +17,14 @@ export const putDb = async (content) => {
   console.log('Item added to database')
 
   //create connection to db
-  const textDb = await openDB('JATE', 1)
+  const textDb = await openDB('jate', 1)
 
   //create new transaction and specify the database and privilages
-  const tx = textDb.transaction('JATE', 'readwrite')
+  const tx = textDb.transaction('jate', 'readwrite')
 
-  const store = tx.objectStore('JATE')
+  const store = tx.objectStore('jate')
 
-  const request = store.add({ content: content })
+  const request = store.add({ content })
 
   const result = await request
 
@@ -35,13 +35,13 @@ export const putDb = async (content) => {
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-  console.error('Getting all data from database')
+  console.log('Getting all data from database')
 
-  const textDb = await openDB('JATE', 1)
+  const textDb = await openDB('jate', 1)
 
-  const tx = textDb.transaction('contact', 'readonly')
+  const tx = textDb.transaction('jate', 'readonly')
 
-  const store = tx.objectStore('JATE')
+  const store = tx.objectStore('jate')
 
   const request = store.getAll()
 
